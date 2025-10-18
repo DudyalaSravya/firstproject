@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Interactive Resume Builder 🚀</h1>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>Your Details</h2>
+            <form id="resume-form">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <input type="text" id="name" placeholder="Full Name" oninput="updatePreview()" required>
+                    <input type="email" id="email" placeholder="Email" oninput="updatePreview()">
+                    <input type="tel" id="phone" placeholder="Phone Number" oninput="updatePreview()">
+                    <input type="text" id="linkedin" placeholder="LinkedIn URL" oninput="updatePreview()">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Profile Summary</legend>
+                    <textarea id="summary" rows="4" placeholder="A brief professional summary..." oninput="updatePreview()"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Education</legend>
+                    <div id="education-container">
+                        </div>
+                    <button type="button" onclick="addDynamicRow('education')">Add Education</button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Experience</legend>
+                    <div id="experience-container">
+                        </div>
+                    <button type="button" onclick="addDynamicRow('experience')">Add Experience</button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Skills</legend>
+                    <input type="text" id="skills" placeholder="e.g., JavaScript, React, Python (separate with commas)" oninput="updatePreview()">
+                </fieldset>
+                
+                <div class="form-actions">
+                    <button type="reset" class="clear-button">Clear Form & Resume</button>
+                    </div>
+            </form>
+        </section>
+
+        <section class="preview-section">
+            <h2>Live Resume Preview</h2>
+            <div id="resume-preview" class="resume-template">
+                <div class="header-box">
+                    <h1 id="preview-name">Your Full Name</h1>
+                    <p class="contact-info">
+                        <span id="preview-email">email@example.com</span> | 
+                        <span id="preview-phone">(123) 456-7890</span> | 
+                        <a id="preview-linkedin" href="#" target="_blank">LinkedIn</a>
+                    </p>
+                </div>
+                
+                <hr>
+
+                <div class="section-box">
+                    <h3>Profile Summary</h3>
+                    <p id="preview-summary">A brief professional summary will appear here in real-time as you type.</p>
+                </div>
+
+                <div class="section-box">
+                    <h3>Education</h3>
+                    <div id="preview-education">
+                        </div>
+                </div>
+
+                <div class="section-box">
+                    <h3>Experience</h3>
+                    <div id="preview-experience">
+                        </div>
+                </div>
+
+                 <div class="section-box">
+                    <h3>Skills</h3>
+                    <p id="preview-skills">JavaScript, React, HTML, CSS</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
